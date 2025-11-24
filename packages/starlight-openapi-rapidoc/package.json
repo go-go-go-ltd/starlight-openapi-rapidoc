@@ -1,5 +1,5 @@
 {
-  "name": "starlight-openapi-rapidoc",
+  "name": "@go-go-go-ltd/starlight-openapi-rapidoc",
   "version": "0.7.1",
   "license": "MIT",
   "description": "Starlight plugin to generate documentation from OpenAPI/Swagger specifications + RapiDoc..",
@@ -35,7 +35,8 @@
   },
   "packageManager": "pnpm@8.6.12",
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "sideEffects": false,
   "keywords": [

@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      packages: write
       id-token: write
     steps:
       - name: Checkout
@@ -34,7 +35,8 @@ jobs:
         with:
           cache: pnpm
           node-version: 18
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@go-go-go-ltd'
 
       - name: Install dependencies
         run: pnpm install
@@ -43,8 +45,7 @@ jobs:
         run: pnpm publish --no-git-checks
         working-directory: packages/starlight-openapi-rapidoc
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate changelog
         uses: hideoo/changelogithub-action@v1
