@@ -35,8 +35,7 @@ jobs:
         with:
           cache: pnpm
           node-version: 18
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@go-go-go-ltd'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -45,7 +44,7 @@ jobs:
         run: pnpm publish --no-git-checks
         working-directory: packages/starlight-openapi-rapidoc
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Generate changelog
         uses: hideoo/changelogithub-action@v1

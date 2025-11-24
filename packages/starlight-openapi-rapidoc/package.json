@@ -35,8 +35,7 @@
   },
   "packageManager": "pnpm@8.6.12",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "sideEffects": false,
   "keywords": [
