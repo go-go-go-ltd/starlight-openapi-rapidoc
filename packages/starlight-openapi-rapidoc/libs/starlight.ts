@@ -126,9 +126,9 @@ export function getSidebarFromSchemas(
 }
 
 export function makeSidebarGroup(groupConfig: SidebarManualGroup): SidebarManualGroup {
-  const { label, items, collapsed = true} = groupConfig
+  const { label, items, collapsed = true } = groupConfig
 
-  return { collapsed, items, label}
+  return { collapsed, items, label }
 }
 
 export const chooseBadgeVariant = (method: string) => {
@@ -165,7 +165,7 @@ export function makeSidebarLinkFromPathOperation(
 
   return {
     label: title,
-    link: baseLink + slug + `/${method}`,
+    link: `${baseLink + slug}/${method}`,
     attrs: { class: `sord-operation-link method-${method}` },
     badge: showMethodBadgeSidebar
       ? {

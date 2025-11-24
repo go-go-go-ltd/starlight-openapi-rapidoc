@@ -28,7 +28,7 @@ function getPathItemStaticPaths(schema: Schema): StarlighOpenAPIRoute[] {
   return [...operations.entries()].flatMap(([, operations]) =>
     operations.map((operation) => ({
       params: {
-        openAPISlug: stripLeadingAndTrailingSlashes(baseLink + operation.slug+ `/${operation.method}`),
+        openAPISlug: stripLeadingAndTrailingSlashes(`${baseLink + operation.slug}/${operation.method}`),
       },
       props: {
         operation,
