@@ -110,31 +110,31 @@ const slotName = `${pathItemOperation.method}-${
     window.console.debug('schema loaded', { schemaFiltred })
 
     function setRapiDocTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const rapiDocTheme = (currentTheme === 'light' || currentTheme === 'default') ? 'light' : 'dark';
+      const currentTheme = document.documentElement.dataset.theme
+      const rapiDocTheme = currentTheme === 'light' || currentTheme === 'default' ? 'light' : 'dark'
 
-      const rapiDocElement = document.querySelector('rapi-doc');
+      const rapiDocElement = document.querySelector('rapi-doc')
       if (rapiDocElement) {
-        rapiDocElement.setAttribute('theme', rapiDocTheme);
+        rapiDocElement.setAttribute('theme', rapiDocTheme)
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      setRapiDocTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      setRapiDocTheme()
 
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === "attributes" && mutation.attributeName === "data-theme") {
-            setRapiDocTheme();
+      const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+            setRapiDocTheme()
           }
-        });
-      });
+        }
+      })
 
       observer.observe(document.documentElement, {
         attributes: true,
-        attributeFilter: ['data-theme']
-      });
-    });
+        attributeFilter: ['data-theme'],
+      })
+    })
   })
 </script>
 
