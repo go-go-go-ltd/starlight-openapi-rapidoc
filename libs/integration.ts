@@ -9,7 +9,7 @@ export function starlightOpenAPIIntegration(schemas: Schema[]): AstroIntegration
     hooks: {
       'astro:config:setup': ({ injectRoute, updateConfig }) => {
         injectRoute({
-          entrypoint: 'starlight-openapi-rapidoc/route',
+          entrypoint: '@go-go-go-ltd/starlight-openapi-rapidoc/route',
           pattern: `[...openAPISlug]`,
           prerender: true,
         })
